@@ -1,9 +1,9 @@
-NAME=PBook
+NAME=Test_fixed
 
-SRC=PhoneBook.cpp\
-    main.cpp
+SRC= main.cpp\
+     Fixed.cpp
 
-HDR=PhoneBook.hpp
+HDR=Fixed.hpp
 
 CC=c++
 
@@ -12,15 +12,15 @@ SFLAG=-std=c++98
 
 FLAG= $(WFLAG) $(SFLAG)
 
-OBJ=$(SRC:.c=.o)
+OBJ=$(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME): $(HDR) $(OBJ) $(SRC)
 	$(CC) $(FLAG) $(OBJ) -o $(NAME)
 
-%.o : %.c
-	$(CC) $< -c $@
+%.o : %.cpp
+	$(CC) $< -c -o $@
 
 clean:
 	rm -f $(OBJ)
