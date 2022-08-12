@@ -60,28 +60,107 @@ Fixed		&Fixed::operator=(Fixed const &src)
 	this->_raw = src.getRawBits();
 	return *this;
 }
-bool 	Fixed::operator>( Fixed const &src)
+
+
+Fixed const	&Fixed::min(Fixed const &src, Fixed const &that)
+{
+	return (src.getRawBits() > that.getRawBits() ? that : src);
+}
+
+Fixed 	&Fixed::min(Fixed &src, Fixed &that)
+{
+	return (src.getRawBits() > that.getRawBits() ? that : src);
+}
+
+Fixed const	&Fixed::max(Fixed const &src, Fixed const &that)
+{
+	return (src.getRawBits() < that.getRawBits() ? that : src);
+}
+
+Fixed 	&Fixed::max(Fixed &src, Fixed &that)
+{
+	return (src.getRawBits() < that.getRawBits() ? that : src);
+}
+
+bool 	Fixed::operator>(Fixed const &src)
 {
 	return this->_raw > src.getRawBits();
 }
 
-bool 	Fixed::operator<( Fixed const &src)
+bool 	Fixed::operator<(Fixed const &src)
 {
 	return this->_raw < src.getRawBits();
 }
-bool 	Fixed::operator<=( Fixed const &src)
+
+bool 	Fixed::operator<=(Fixed const &src)
 {
 	return this->_raw <= src.getRawBits();
 }
-bool 	Fixed::operator>=( Fixed const &src)
+
+bool 	Fixed::operator>=(Fixed const &src)
 {
 	return this->_raw >= src.getRawBits();
 }
-bool 	Fixed::operator==( Fixed const &src)
+
+bool 	Fixed::operator==(Fixed const &src)
 {
 	return this->_raw == src.getRawBits();
 }
-bool 	Fixed::operator!=( Fixed const &src)
+
+bool 	Fixed::operator!=(Fixed const &src)
 {
 	return this->_raw != src.getRawBits();
+}
+
+Fixed 	Fixed::operator+(Fixed const &src) const
+{
+	Fixed	cpy(*this);
+
+	cpy.setRawBits(this->_raw + src.getRawBits());
+	return (cpy);
+}
+
+Fixed 	Fixed::operator-(Fixed const &src) const
+{
+	Fixed	cpy(*this);
+
+	cpy.setRawBits(this->_raw - src.getRawBits());
+	return (cpy);
+}
+
+Fixed	Fixed::operator*(Fixed const &src)
+{
+	Fixed	cpy(this->toFloat() * src.toFloat());
+
+	return (cpy);
+}
+
+Fixed	&Fixed::operator++()
+{
+	this->_raw += 1;
+	return (*this);
+}
+
+float	Fixed::operator++(int	incr)
+{
+	float tmp;
+
+	tmp = this->toFloat();
+	this->_raw += 1 + incr;
+	return (tmp);
+}
+
+Fixed	&Fixed::operator--()
+{
+	this->_raw -= 1;
+	return (*this);
+}
+
+float	Fixed::operator--(int incr)
+{
+	float	tmp;
+
+	tmp = this->toFloat();
+	this->_raw += 1 + incr;
+	return (tmp);
 }
