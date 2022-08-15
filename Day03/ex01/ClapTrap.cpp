@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(ClapTrap &src): _name(src._name), _hp(src._hp), _energy(src._
 
 ClapTrap::~ClapTrap (void)
 {
-	std::cout << _name << " Dissasembled." << std::endl;
+	std::cout << "ClapTrap " << _name << " Dissasembled." << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &src)

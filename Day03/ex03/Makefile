@@ -1,7 +1,14 @@
 NAME=Claptrap
 SRC=main.cpp\
-    ClapTrap.cpp
-HDR=ClapTrap.hpp
+    ClapTrap.cpp\
+    ScavTrap.cpp\
+    FragTrap.cpp\
+    DiamondTrap.cpp
+	
+HDR=ClapTrap.hpp\
+    ScavTrap.hpp\
+    FragTrap.hpp\
+    DiamondTrap.hpp
 CC=c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ=$(SRC:.cpp=.o)
