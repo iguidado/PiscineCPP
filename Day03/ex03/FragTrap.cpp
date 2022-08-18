@@ -3,7 +3,6 @@
 
 FragTrap::FragTrap (void): ClapTrap()
 { 
-	this->_name = "FragTrap";
 	this->_hp = 10;
 	this->_energy = 10;
 	this->_attack = 10;
@@ -19,7 +18,7 @@ FragTrap::FragTrap(std::string name)
 	std::cout << "You summoned a copy of FragTrap named :" << _name << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap &src)
+FragTrap::FragTrap(FragTrap &src): ClapTrap()
 { 
 	this->_name = src._name;
 	this->_hp = src._hp;

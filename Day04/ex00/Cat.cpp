@@ -11,7 +11,7 @@ Cat::~Cat(void)
 }
 
 
-Cat::Cat(Cat & src): _type(src._type)
+Cat::Cat(Cat & src): Animal(), _type(src._type)
 {
 	std::cout << "Cat copied as '" + _type + "' is born" << std::endl;
 }

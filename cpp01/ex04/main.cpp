@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 	{
 		if (ifs.eof())
 			ifs.close();
-		if ((pos = (buffer.find(s1))) != -1)
+		if (!s1.empty() && (pos = (buffer.find(s1))) != -1)
 		{
 			buffer.erase(pos, s1.size());
 			buffer.insert(pos, s2);

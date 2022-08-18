@@ -33,10 +33,18 @@ int	main(void)
 //	test.makeSound();
 //	dog1.makeSound();
 //	cat1.makeSound();
+//	Brain *test = new Brain;
 
 	Animal *dog = new Dog();
 	Animal *cat = new Cat();
+	Animal other(*cat);
 
+	dog->makeSound();
+	std::cout << std::endl;
+	cat->makeSound();
+	std::cout << std::endl;
+	other.makeSound();
+	std::cout << std::endl;
 	delete dog;
 	delete cat;
 	return (0);

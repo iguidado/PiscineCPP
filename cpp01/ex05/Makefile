@@ -19,10 +19,10 @@ CC=c++
 all : $(NAME)
 
 $(NAME): $(OBJ) $(HDR)
-	$(CC) $(FLAG) -g3 $(OBJ) -o $(NAME)
+	$(CC) $(FLAG) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(FLAG) -g3 -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

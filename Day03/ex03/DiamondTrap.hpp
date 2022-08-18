@@ -1,21 +1,22 @@
 #pragma once
+#include <string>
+#include <iostream>
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class	DiamondTrap: public ScavTrap, public FragTrap
+class DiamondTrap: public FragTrap, public ScavTrap
 {
-	private:
-		std ::string _name;
+	protected:
+		std::string	_name;
+		int		_hp;
+		int		_energy;
+		int		_attack;
 	public:
-	DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(_name), FragTrap(_name)
-	{
-		_name = name;
-		ClapTrap::_name = _name + "_clap_name";
-		std::cout << "Summoned the perfect DiamondTrap" + _name << std::endl;
-	}
+		DiamondTrap(void);
+		DiamondTrap(std::string name);
+		DiamondTrap(DiamondTrap &src);
+		~DiamondTrap(void);
+		DiamondTrap &operator=(DiamondTrap const &src);
 
-	~DiamondTrap(void){
-		std::cout << "DiamondTrap " + _name + " returned to dust. ;-;" << std::endl;
-	}
-	void	whoAmI();
+		void	whoAmI();
 };

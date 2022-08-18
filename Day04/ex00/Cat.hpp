@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-class Cat
+class Cat: public Animal
 {
 	protected:
 		std::string	_type;
@@ -13,5 +13,5 @@ class Cat
 		Cat(Cat & src);
 		Cat & operator=(Cat &src);
 
-		void	makeSound();
+		virtual void	makeSound();
 };

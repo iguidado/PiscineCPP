@@ -23,7 +23,13 @@ Animal & Animal::operator=(Animal & src)
 	return *this;
 }
 
-void	Animal::makeSound(void)
+void	Animal::makeSound(void) const
 {
 	std::cout << _type + "made a generic Animal sound sound" << std::endl;
+}
+
+
+std::string	Animal::getType() const
+{
+	return this->_type;
 }

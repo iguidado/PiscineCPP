@@ -7,4 +7,5 @@ int	main(void)
 	randomChump("Stacked");
 	heaped = newZombie("Heaped");
 	delete(heaped);
+	return (0);
 }

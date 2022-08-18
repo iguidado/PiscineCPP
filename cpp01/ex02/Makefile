@@ -6,7 +6,7 @@ OBJ=$(SRC:.cpp=.o)
 
 
 WFLAG=-Wall -Werror -Wextra
-SFLAG=-std=c++98 -g3
+SFLAG=-std=c++98
 
 FLAG=$(WFLAG) $(SFLAG)
 

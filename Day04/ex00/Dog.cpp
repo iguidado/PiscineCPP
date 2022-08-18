@@ -11,7 +11,7 @@ Dog::~Dog(void)
 }
 
 
-Dog::Dog(Dog & src): _type(src._type)
+Dog::Dog(Dog & src):Animal(), _type(src._type)
 {
 	std::cout << "Dog copied as '" + _type + "' is born" << std::endl;
 }

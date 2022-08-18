@@ -3,7 +3,6 @@
 
 ScavTrap::ScavTrap (void)
 { 
-	this->_name = "ScavTrap";
 	this->_hp = 100;
 	this->_energy = 50;
 	this->_attack = 20;
@@ -19,7 +18,7 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "You summoned a ScavTrap pup named : " << _name << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap &src)
+ScavTrap::ScavTrap(ScavTrap &src): ClapTrap()
 { 
 	this->_name = src._name;
 	this->_hp = src._hp;

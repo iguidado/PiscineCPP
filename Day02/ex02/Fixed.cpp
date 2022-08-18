@@ -82,32 +82,32 @@ Fixed 	&Fixed::max(Fixed &src, Fixed &that)
 	return (src.getRawBits() < that.getRawBits() ? that : src);
 }
 
-bool 	Fixed::operator>(Fixed const &src)
+bool 	Fixed::operator>(Fixed const &src) const
 {
 	return this->_raw > src.getRawBits();
 }
 
-bool 	Fixed::operator<(Fixed const &src)
+bool 	Fixed::operator<(Fixed const &src) const
 {
 	return this->_raw < src.getRawBits();
 }
 
-bool 	Fixed::operator<=(Fixed const &src)
+bool 	Fixed::operator<=(Fixed const &src) const
 {
 	return this->_raw <= src.getRawBits();
 }
 
-bool 	Fixed::operator>=(Fixed const &src)
+bool 	Fixed::operator>=(Fixed const &src) const
 {
 	return this->_raw >= src.getRawBits();
 }
 
-bool 	Fixed::operator==(Fixed const &src)
+bool 	Fixed::operator==(Fixed const &src) const
 {
 	return this->_raw == src.getRawBits();
 }
 
-bool 	Fixed::operator!=(Fixed const &src)
+bool 	Fixed::operator!=(Fixed const &src) const
 {
 	return this->_raw != src.getRawBits();
 }
@@ -128,7 +128,7 @@ Fixed 	Fixed::operator-(Fixed const &src) const
 	return (cpy);
 }
 
-Fixed	Fixed::operator*(Fixed const &src)
+Fixed	Fixed::operator*(Fixed const &src) const
 {
 	Fixed	cpy(this->toFloat() * src.toFloat());
 

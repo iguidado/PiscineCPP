@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-class Dog : public virtual Animal {
+class Dog : public Animal {
 	protected:
 		Brain		*_brain;
 		std::string	_type;
@@ -13,5 +13,5 @@ class Dog : public virtual Animal {
 		~Dog(void);
 		Dog(Dog & src);
 		Dog & operator=(Dog &src);
-		void	makeSound();
+		virtual void	makeSound();
 };

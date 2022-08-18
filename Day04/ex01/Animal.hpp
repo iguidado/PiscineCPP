@@ -6,13 +6,13 @@
 class Animal
 {
 	protected:
-		Brain		*_brain;
+//		Brain		*_brain;
 		std::string	_type;
 	public:
 		Animal(void);
-		~Animal(void);
+		virtual ~Animal(void);
 		Animal(Animal & src);
 		Animal & operator=(Animal &src);
 		
-		void	makeSound();
+		virtual void	makeSound();
 };

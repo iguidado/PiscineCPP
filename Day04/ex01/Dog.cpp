@@ -8,6 +8,7 @@ Dog::Dog(void): _type("Dog")
 
 Dog::~Dog(void)
 {
+	delete  _brain;
 	std::cout << "Dog defined as '" + _type + "' died" << std::endl;
 }
 

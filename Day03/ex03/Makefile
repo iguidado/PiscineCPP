@@ -18,6 +18,10 @@ all : $(NAME)
 $(NAME): $(HDR) $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
+%.o: %.cpp
+	$(CC) -c $< -o $@
+
+
 clean:
 	rm -f $(OBJ)
 fclean: clean

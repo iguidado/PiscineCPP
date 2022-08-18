@@ -7,10 +7,10 @@ class Fixed
 		int			_raw;
 		static int const	_bits = 8;
 	public:
-			Fixed(Fixed const &origin);
-		Fixed &	operator=(Fixed const &src);
 			Fixed(void);
 			~Fixed(void);
+			Fixed(Fixed const &origin);
+		Fixed &	operator=(Fixed const &src);
 		int	getRawBits(void) const;
 		void	setRawBits(int const &raw);
 };
