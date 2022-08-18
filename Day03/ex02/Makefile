@@ -1,9 +1,11 @@
 NAME=Claptrap
 SRC=main.cpp\
     ClapTrap.cpp\
+    ScavTrap.cpp\
     FragTrap.cpp
 	
 HDR=ClapTrap.hpp\
+    ScavTrap.hpp\
     FragTrap.hpp
 CC=c++ -Wall -Wextra -Werror -std=c++98
 
@@ -11,8 +13,11 @@ OBJ=$(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(HDR) $(OBJ)
+$(NAME): $(HDR) $(OBJ) $(SRC)
 	$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HDR)
+	$(CC) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

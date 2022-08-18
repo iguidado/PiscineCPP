@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "You summoned a ScavTrap pup named :" << _name << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap &src)
+ScavTrap::ScavTrap(ScavTrap &src): ClapTrap(src._name)
 { 
 	this->_name = src._name;
 	this->_hp = src._hp;

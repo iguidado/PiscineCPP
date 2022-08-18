@@ -32,7 +32,12 @@ ScavTrap::~ScavTrap (void)
 	std::cout << "ScavTrap named " << _name << " was set free." << std::endl;
 }
 
-void	ScavTrap::guardGate(void)
+void	ScavTrap::attack(const std::string &target) const
+{
+	std::cout << "ScavTrap" + _name + " ferociously attacked " + target << std::endl;
+}
+
+void	ScavTrap::guardGate(void) const
 {
 	std::cout << "ScavTrap" + _name + " entered in Gate Keeping mode." << std::endl;
 }

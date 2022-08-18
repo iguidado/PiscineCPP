@@ -1,22 +1,23 @@
-NAME=Claptrap
+NAME=Bureaucrat
 SRC=main.cpp\
-    ClapTrap.cpp
-HDR=ClapTrap.hpp
+    Bureaucrat.cpp
+	
+HDR=Bureaucrat.hpp\
+
 CC=c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ=$(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(HDR) $(OBJ) $(SRC)
+$(NAME): $(HDR) $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.cpp $(HDR)
+%.o: %.cpp
 	$(CC) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
-
 fclean: clean
 	rm -f $(NAME)
 

@@ -1,22 +1,27 @@
-NAME=Claptrap
+NAME=Animals
 SRC=main.cpp\
-    ClapTrap.cpp
-HDR=ClapTrap.hpp
+    Animal.cpp\
+    Cat.cpp\
+    Dog.cpp
+	
+HDR=Animal.hpp\
+    Cat.hpp\
+    Dog.hpp
+
 CC=c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ=$(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(HDR) $(OBJ) $(SRC)
+$(NAME): $(HDR) $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.cpp $(HDR)
-	$(CC) -c $< -o $@
+%.o:%.cpp
+	$(CC) $< -c -o $@
 
 clean:
 	rm -f $(OBJ)
-
 fclean: clean
 	rm -f $(NAME)
 

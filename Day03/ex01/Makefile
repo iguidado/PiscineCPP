@@ -11,8 +11,11 @@ OBJ=$(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(HDR) $(OBJ)
+$(NAME): $(HDR) $(OBJ) $(SRC)
 	$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HDR)
+	$(CC) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
