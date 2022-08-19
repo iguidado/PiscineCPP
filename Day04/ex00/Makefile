@@ -1,10 +1,14 @@
 NAME=Animals
 SRC=main.cpp\
     Animal.cpp\
+    WrongAnimal.cpp\
+    WrongCat.cpp\
     Cat.cpp\
     Dog.cpp
 	
 HDR=Animal.hpp\
+    WrongAnimal.hpp\
+    WrongCat.hpp\
     Cat.hpp\
     Dog.hpp
 
