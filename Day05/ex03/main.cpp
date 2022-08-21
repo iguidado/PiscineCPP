@@ -11,5 +11,7 @@ int	main(void)
 	newForm->beSigned(boss);
 	newForm->execute(boss);
 	delete newForm;
+	newForm = noob.makeForm("Bad Form", "garden");
+	delete newForm;
 	return (0);
 }
