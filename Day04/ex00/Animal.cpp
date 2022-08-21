@@ -25,7 +25,7 @@ Animal & Animal::operator=(Animal & src)
 
 void	Animal::makeSound(void) const
 {
-	std::cout << _type + "made a generic Animal sound sound" << std::endl;
+	std::cout << _type + "made a generic Animal sound" << std::endl;
 }
 
 

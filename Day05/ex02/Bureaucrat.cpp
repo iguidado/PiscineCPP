@@ -56,6 +56,19 @@ bool	Bureaucrat::setGrade(short grade)
 	return (0);
 }
 
+void		Bureaucrat::executeForm(Form const & form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << "Executed " <<std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat " << _name << "couldn't sign Form" << std::endl;
+	}
+}
+
 const	char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Trying to set a grade to high on Bureaucrat";

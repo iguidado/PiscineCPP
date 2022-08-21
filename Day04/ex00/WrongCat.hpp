@@ -1,3 +1,4 @@
+#pragma once
 #include "WrongAnimal.hpp"
 #include <string>
 #include <iostream>

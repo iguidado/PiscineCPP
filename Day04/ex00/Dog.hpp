@@ -11,5 +11,5 @@ class Dog : public Animal {
 		~Dog(void);
 		Dog(Dog & src);
 		Dog & operator=(Dog &src);
-		void	makeSound();
+		virtual void	makeSound();
 };
