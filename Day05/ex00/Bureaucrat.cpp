@@ -28,14 +28,31 @@ short		Bureaucrat::getGrade(void) const
 
 void		Bureaucrat::incrGrade(void)
 {
+	try
+	{
 	if (_grade > 1)
 		this->_grade--;
+	else
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch	(std::exception & e)
+	{
+		std::cout << "Increment error :" << e.what() << std::endl;
+	}
 }
 
 void		Bureaucrat::decreGrade(void)
 {
+	try {
 		if (_grade < 150)
 			this->_grade++;
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch	(std::exception & e)
+	{
+		std::cout << "Decrement error :" << e.what() << std::endl;
+	}
 }
 
 bool	Bureaucrat::setGrade(short grade)
@@ -51,19 +68,19 @@ bool	Bureaucrat::setGrade(short grade)
 	}
 	catch	(std::exception	& e)
 	{
-		 std::cout << e.what() << std::endl;
+			 std::cout << "Error with Bureaucrat " << getName() << ": " << e.what() << std::endl;
 	}
 	return (0);
 }
 
 const	char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Trying to set a grade to high on Bureaucrat";
+	return "Trying to set a grade too high on Bureaucrat";
 }
 
 const	char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Trying to set a grade to low on Bureaucreat";
+	return "Trying to set a grade too low on Bureaucreat";
 }
 
 std::ostream	&operator<<(std::ostream	&os, Bureaucrat &src)
