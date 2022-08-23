@@ -7,11 +7,18 @@ int	main(void)
 	Form	*newForm;
 	Bureaucrat boss("Boss", 1);
 
-	newForm = noob.makeForm("shrubbery creation", "garden");
+	try
+	{
+	newForm = noob.makeForm("Shrubbery creation", "garden");
 	newForm->beSigned(boss);
 	newForm->execute(boss);
 	delete newForm;
 	newForm = noob.makeForm("Bad Form", "garden");
 	delete newForm;
+	}
+	catch(std::exception & e)
+	{
+		std::cout << "hello";
+	}
 	return (0);
 }

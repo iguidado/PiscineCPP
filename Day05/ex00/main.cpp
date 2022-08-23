@@ -2,9 +2,10 @@
 
 int	main(void)
 {
-	Bureaucrat	dflt;
-	Bureaucrat	nice("Nice", 24);
-	Bureaucrat	wring("Wrong", 160);
+	Bureaucrat	boss("Boss", 150);
+	Bureaucrat	boss1(boss);
+	Bureaucrat	boss2;
 
+	std::cout << boss << std::endl;
 	return (0);
 }

@@ -4,11 +4,13 @@
 
 RobotomyRequestForm::RobotomyRequestForm(): Form("Default", 72, 45)
 {
+	srand(time(0));
 	std::cout << "Created a RobotomyRequestForm" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): Form(target, 72, 45)
 {
+	srand(time(0));
 	std::cout << "Created a RobotomyRequestForm with target: " << this->getTarget() << std::endl;
 }
 
@@ -33,8 +35,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 void	RobotomyRequestForm::perfExec(std::string const &target) const
 {
 	std::cout << "*Drill sound*" << std::endl;
-	srand(time(0));
-	int		result = rand() % 2;
+	int		result = (int)rand() % 2;
 
 	if (result)
 	{

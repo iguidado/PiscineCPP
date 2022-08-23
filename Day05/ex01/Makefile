@@ -1,8 +1,10 @@
 NAME=Bureaucrat
 SRC=main.cpp\
+    Form.cpp\
     Bureaucrat.cpp
 	
 HDR=Bureaucrat.hpp\
+    Form.hpp
 
 CC=c++ -Wall -Wextra -Werror -std=c++98
 

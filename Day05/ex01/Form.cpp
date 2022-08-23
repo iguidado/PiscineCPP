@@ -28,7 +28,6 @@ void		Form::setToSign(short grade)
 	{
 		std::cout << "Could not set toSign to" << grade << " because " << e.what() << std::endl;
 		_toSign = 1;
-		throw "lol";
 	}
 }
 
@@ -92,15 +91,6 @@ void	Form::beSigned(Bureaucrat & signatory)
 	}
 }
 
-bool	Form::testExecute(Bureaucrat const & executor) const
-{
-	if (this->_isSigned == false)
-		throw  Form::NotSignedException();
-	if (executor.getGrade() > this->_toExec)
-		throw Form::GradeTooLowException();
-	return (true);
-}
-
 void	Form::setIsSigned(bool status)
 {
 	this->_isSigned = status;
@@ -125,3 +115,12 @@ const	char	*Form::GradeTooLowException::what() const throw()
 {
 	return "Grade is too Low.";
 }
+
+std::ostream & operator<<(std::ostream &os, Form &form)
+{
+	os  << "Formulaire visant :" << form.getTarget() << std::endl;
+	os << "rang pour signer :" << form.getToSign() << std::endl;
+	os << "rang pour executer :" << form.getToExec() << std::endl;
+	return (os);
+}
+

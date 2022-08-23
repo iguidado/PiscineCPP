@@ -19,4 +19,4 @@ class	Bureaucrat
 		void		decreGrade(void);
 };
 
-std::ostream	operator<<(std::ostream	os, Bureaucrat &src);
+std::ostream	&operator<<(std::ostream	&os, Bureaucrat &src);

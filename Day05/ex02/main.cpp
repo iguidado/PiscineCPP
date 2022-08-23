@@ -18,11 +18,14 @@ int	main(void)
 	evaluator.beSigned(newbie);
 	evaluator.beSigned(boss);
 	evaluator.execute(boss);
-	std::cout << std::endl << "------Robotomy test------" << std::endl;
-	loser.execute(boss);
-	loser.beSigned(newbie);
-	loser.beSigned(boss);
-	loser.execute(boss);
+	for (int i = 0; i < 15; i++)
+	{
+		std::cout << std::endl << "------Robotomy test------" << std::endl;
+		loser.execute(boss);
+		loser.beSigned(newbie);
+		loser.beSigned(boss);
+		loser.execute(boss);
+	}
 	std::cout << std::endl << "------Shrubbery creation test------" << std::endl;
 	garden.setToSign(5);
 	garden.beSigned(newbie);

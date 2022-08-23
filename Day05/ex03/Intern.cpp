@@ -34,6 +34,7 @@ Form	*Intern::makeForm(std::string const &name, std::string const &target)
 			break;
 		default:
 		std::cout << "There is no form named " << name << ", Intern panic !"<< std::endl;
+		throw Form::NotSignedException();
 	}
 	return newForm;
 }
