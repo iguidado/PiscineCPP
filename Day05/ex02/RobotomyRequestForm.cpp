@@ -2,13 +2,13 @@
 #include <ctime>
 
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("Default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(): Form("Robotomy Request", "Brainful",  72, 45)
 {
 	srand(time(0));
 	std::cout << "Created a RobotomyRequestForm" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): Form(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("Robotomy Request", target, 72, 45)
 {
 	srand(time(0));
 	std::cout << "Created a RobotomyRequestForm with target: " << this->getTarget() << std::endl;

@@ -9,11 +9,11 @@ int	main(void)
 	
 	
 	form.beSigned(newbie);
-	std::cout << form.getSigned();
 	std::cout << "*****************************" << std::endl;
 	std::cout << form;
-	form.beSigned(boss);
-	std::cout << form.getSigned();
+//	form.beSigned(boss);
+	newbie.signForm(form);
+	boss.signForm(form);
 	std::cout << "*****************************" << std::endl;
 	std::cout << form;
 	return (0);

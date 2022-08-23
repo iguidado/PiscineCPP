@@ -1,12 +1,12 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(void): _isSigned(false), _toSign(0), _toExec(150)
+Form::Form(void): _name("Default"), _isSigned(false), _toSign(0), _toExec(150)
 {
 	std::cout << "Default Constructor called" << std::endl;
 }
 
-Form::Form(std::string target, short toSign, short toExec): _target(target), _isSigned(false)
+Form::Form(std::string name, short toSign, short toExec): _name(name), _isSigned(false)
 {
 	this->setToSign(toSign);
 	this->setToExec(toExec);
@@ -58,9 +58,9 @@ bool	const	&Form::getSigned(void) const
 	return (_isSigned);
 }
 
-std::string	const &Form::getTarget(void) const
+std::string	const &Form::getName(void) const
 {
-	return (_target);
+	return (_name);
 }
 
 bool	Form::setGrade(short &toSet, short grade)
@@ -83,11 +83,11 @@ void	Form::beSigned(Bureaucrat & signatory)
 		if (signatory.getGrade() > this->_toSign)
 			throw Form::GradeTooLowException();
 		_isSigned = true;
-		std::cout << "Signed form" << std::endl;
+		std::cout << signatory.getName() << " Signed form " << this->_name << std::endl;
 	}
 	catch (std::exception & e)
 	{
-		std::cout << "Can't sign form because: " << e.what() << std::endl;
+	std::cout << signatory.getName() << " could't sign "  << this->getName() << " because " << e.what() << std::endl;
 	}
 }
 
@@ -118,9 +118,12 @@ const	char	*Form::GradeTooLowException::what() const throw()
 
 std::ostream & operator<<(std::ostream &os, Form &form)
 {
-	os  << "Formulaire visant :" << form.getTarget() << std::endl;
-	os << "rang pour signer :" << form.getToSign() << std::endl;
-	os << "rang pour executer :" << form.getToExec() << std::endl;
+	os  << "Form name :" << form.getName() << std::endl;
+	os << "Form is ";
+	if (!form.getSigned())
+		os << "Not ";
+	os << "Signed." << std::endl;
+	os << "rank require to sign :" << form.getToSign() << std::endl;
+	os << "Rank require to execute :" << form.getToExec() << std::endl;
 	return (os);
 }
-

@@ -7,13 +7,13 @@ class	Bureaucrat;
 class	Form
 {
 	private:
-		std::string	_target;
+		std::string const _name;
 		bool		_isSigned;
 		short		_toSign;
 		short		_toExec;
 	public:
 		Form(void);
-		Form(std::string target, short toSign, short toExec);
+		Form(std::string name, short toSign, short toExec);
 		~Form(void);
 
 		class	AlreadySigned: public std::exception { const char *what(void) const throw(); };
@@ -30,7 +30,7 @@ class	Form
 		void	setIsSigned(bool status);
 
 
-		std::string	const &getTarget(void) const;
+		std::string	const &getName(void) const;
 		short		const &getToSign(void) const;
 		short		const &getToExec(void) const;
 		bool		const &getSigned(void) const;

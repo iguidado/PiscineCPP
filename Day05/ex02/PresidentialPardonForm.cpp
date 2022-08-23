@@ -1,12 +1,12 @@
 #include "PresidentialPardonForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(): Form("Default", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(): Form("Presidential Pardon", "Traitor",  25, 5)
 {
 	std::cout << "Created a PresidentialPardonForm" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Form(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("Presidential Pardon", target, 25, 5)
 {
 	std::cout << "Created a PresidentialPardonForm with target: " << this->getTarget() << std::endl;
 }
@@ -31,5 +31,5 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 
 void	PresidentialPardonForm::perfExec(std::string const &target) const
 {
-	std::cout << target << "Was forgiven by the fabulout Zaphod Beeblebrox *_*" << std::endl;
+	std::cout << target << " Was forgiven by the fabulout Zaphod Beeblebrox *_*" << std::endl;
 }

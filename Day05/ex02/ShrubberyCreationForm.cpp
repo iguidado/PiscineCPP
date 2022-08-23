@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form("Default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("Shrubbery Creation", "Garden",  145, 137)
 {
 	std::cout << "Created a ShrubberyCreationForm" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("Shrubbery Creation", target, 145, 137)
 {
 	std::cout << "Created a ShrubberyCreationForm with target: " << this->getTarget() << std::endl;
 }

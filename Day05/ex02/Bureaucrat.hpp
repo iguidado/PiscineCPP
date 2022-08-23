@@ -8,7 +8,7 @@ class	Form;
 class	Bureaucrat
 {
 	private:
-		std::string	_name;
+		std::string	const _name;
 		short		_grade;
 	public:
 		Bureaucrat(void);
@@ -21,6 +21,8 @@ class	Bureaucrat
 		bool		setGrade(short	grade);
 		void		incrGrade(void);
 		void		decreGrade(void);
+
+		void		signForm(Form &form);
 
 		void		executeForm(Form const & form) const;
 
