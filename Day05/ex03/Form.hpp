@@ -34,7 +34,6 @@ class	Form
 		void	setToExec(short grade);
 		void	setIsSigned(bool status);
 
-
 		std::string	const &getTarget(void) const;
 		std::string	const &getName(void) const;
 		short		const &getToSign(void) const;

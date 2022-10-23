@@ -11,11 +11,32 @@ int	main(void)
 	PresidentialPardonForm	evaluator("Evaluator");
 	Bureaucrat		boss("Boss", 1);
 	Bureaucrat		newbie("Noob", 150);
-	
-	std::cout << "Testing not signed exception " << std::endl;
-	boss.executeForm(garden);
-	boss.executeForm(loser);
-	boss.executeForm(evaluator);
+
+	std::cout << "----Testing not signed exception-----" << std::endl;
+	try
+	{
+		boss.executeForm(garden);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Boss can't execute Form because " << e.what() << std::endl;
+	}
+	try
+	{
+		boss.executeForm(loser);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Boss can't execute Form because " << e.what() << std::endl;
+	}
+	try
+	{
+		boss.executeForm(evaluator);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Boss can't execute Form because " << e.what() << std::endl;
+	}
 	std::cout << "-----------------------------" << std::endl << std::endl;
 
 	std::cout << "--------Signing Forms--------" << std::endl;
@@ -25,9 +46,30 @@ int	main(void)
 	std::cout << "-----------------------------" << std::endl << std::endl;
 
 	std::cout << "---Testing grade to low exception for execution---" << std::endl;
-	newbie.executeForm(garden);
-	newbie.executeForm(loser);
-	newbie.executeForm(evaluator);
+	try
+	{
+		newbie.executeForm(garden);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Newbie can't execute Form because " << e.what() << std::endl;
+	}
+	try
+	{
+		newbie.executeForm(loser);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Newbie can't execute Form because " << e.what() << std::endl;
+	}
+	try
+	{
+		newbie.executeForm(evaluator);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Newbie can't execute Form because " << e.what() << std::endl;
+	}
 	std::cout << "-------------------------------------------------" << std::endl << std::endl;
 
 	std::cout << "---Executing Forms ---" << std::endl;

@@ -17,13 +17,35 @@ int	main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Can't sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << "Newbie can't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 	std::cout << "*****************************" << std::endl;
 	std::cout << form;
-//	form.beSigned(boss);
-	newbie.signForm(form);
-	boss.signForm(form);
+	try
+	{
+		newbie.signForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Newbie can't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+
+	try
+	{
+		boss.signForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Boss can't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+	try
+	{
+		boss.signForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Boss can't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 	std::cout << "*****************************" << std::endl << std::endl;
 	std::cout << form;
 	return (0);

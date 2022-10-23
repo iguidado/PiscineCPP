@@ -25,26 +25,26 @@ void		Form::setTarget(std::string const &target)
 
 void		Form::setToSign(short grade)
 {
-	try{
+//	try{
 		setGrade(this->_toSign, grade);
-	}
-	catch	(std::exception	& e)
-	{
-		std::cout << "Could not set toSign to" << grade << " because " << e.what() << std::endl;
-		_toSign = 1;
-	}
+//	}
+//	catch	(std::exception	& e)
+//	{
+//		std::cout << "Could not set toSign to" << grade << " because " << e.what() << std::endl;
+//		_toSign = 1;
+//	}
 }
 
 void		Form::setToExec(short grade)
 {
-	try{
+//	try{
 		setGrade(this->_toExec, grade);
-	}
-	catch	(std::exception	& e)
-	{
-		std::cout << "Could not set toExec to" << grade << " because " << e.what() << std::endl;
-		_toExec = 1;
-	}
+//	}
+//	catch	(std::exception	& e)
+//	{
+//		std::cout << "Could not set toExec to" << grade << " because " << e.what() << std::endl;
+//		_toExec = 1;
+//	}
 }
 
 short	const	&Form::getToSign(void) const
@@ -85,19 +85,19 @@ std::string const	&Form::getName(void) const
 
 void	Form::beSigned(Bureaucrat & signatory)
 {
-	try
-	{
+//	try
+//	{
 		if (_isSigned == true)
 			throw Form::AlreadySigned();
 		if (signatory.getGrade() > this->_toSign)
 			throw Form::GradeTooLowException();
 		_isSigned = true;
 		std::cout << signatory.getName() << " Signed form " << this->_name << std::endl;
-	}
-	catch (std::exception & e)
-	{
-	std::cout << signatory.getName() << " could't sign "  << this->getName() << " because " << e.what() << std::endl;
-	}
+//	}
+//	catch (std::exception & e)
+//	{
+//	std::cout << signatory.getName() << " could't sign "  << this->getName() << " because " << e.what() << std::endl;
+//	}
 }
 
 bool	Form::testExecute(Bureaucrat const & executor) const

@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(void): _name("Default"), _target("default"), _isSigned(false), _toSign(0), _toExec(150)
+Form::Form(void): _name("Default"), _target("default"), _isSigned(false), _toSign(1), _toExec(1)
 {
 	std::cout << "Default Constructor called" << std::endl;
 }
@@ -20,31 +20,17 @@ Form::~Form(void)
 
 void		Form::setTarget(std::string const &target)
 {
-		this->_target = target;
+	this->_target = target;
 }
 
 void		Form::setToSign(short grade)
 {
-	try{
-		setGrade(this->_toSign, grade);
-	}
-	catch	(std::exception	& e)
-	{
-		std::cout << "Could not set toSign to" << grade << " because " << e.what() << std::endl;
-		_toSign = 1;
-	}
+	setGrade(this->_toSign, grade);
 }
 
 void		Form::setToExec(short grade)
 {
-	try{
-		setGrade(this->_toExec, grade);
-	}
-	catch	(std::exception	& e)
-	{
-		std::cout << "Could not set toExec to" << grade << " because " << e.what() << std::endl;
-		_toExec = 1;
-	}
+	setGrade(this->_toExec, grade);
 }
 
 short	const	&Form::getToSign(void) const
@@ -70,9 +56,15 @@ std::string	const &Form::getTarget(void) const
 bool	Form::setGrade(short &toSet, short grade)
 {
 	if (grade < 1)
+	{
+		toSet = 150;
 		throw Form::GradeTooHighException();
+	}
 	else if (grade > 150)
+	{
+		toSet = 150;
 		throw Form::GradeTooLowException();
+	}
 	else
 		toSet = grade;
 	return (0);
@@ -85,19 +77,12 @@ std::string const	&Form::getName(void) const
 
 void	Form::beSigned(Bureaucrat & signatory)
 {
-	try
-	{
-		if (_isSigned == true)
-			throw Form::AlreadySigned();
-		if (signatory.getGrade() > this->_toSign)
-			throw Form::GradeTooLowException();
-		_isSigned = true;
-		std::cout << signatory.getName() << " Signed form " << this->_name << std::endl;
-	}
-	catch (std::exception & e)
-	{
-	std::cout << signatory.getName() << " could't sign "  << this->getName() << " because " << e.what() << std::endl;
-	}
+	if (_isSigned == true)
+		throw Form::AlreadySigned();
+	if (signatory.getGrade() > this->_toSign)
+		throw Form::GradeTooLowException();
+	_isSigned = true;
+	std::cout << signatory.getName() << " Signed form " << this->_name << std::endl;
 }
 
 bool	Form::testExecute(Bureaucrat const & executor) const

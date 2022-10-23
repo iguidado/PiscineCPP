@@ -21,10 +21,38 @@ int	main(void)
 	norm.decreGrade();
 	std::cout << norm << std::endl;
 	std::cout << "--------------Exception---------------" << std::endl;
-	Bureaucrat	high("High", 0);
-	Bureaucrat	low("Low", 151);
-	boss.incrGrade();
-	noob.decreGrade();
+	try
+	{
+		Bureaucrat	high("High", 0);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat creation failed because " << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat	low("Low", 151);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat creation failed because " << e.what() << std::endl;
+	}
+	try
+	{
+		boss.incrGrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat incrementation failed because " << e.what() << std::endl;
+	}
+	try
+	{
+		noob.decreGrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat incrementation failed because " << e.what() << std::endl;
+	}
 	std::cout << "Bureaucrate named " <<  boss.getName() << " with grade " << boss.getGrade() << std::endl;
 	std::cout << "--------------Setter---------------" << std::endl;
 	boss.setGrade(3);

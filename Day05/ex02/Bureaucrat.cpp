@@ -40,34 +40,19 @@ void		Bureaucrat::decreGrade(void)
 
 bool	Bureaucrat::setGrade(short grade)
 {
-	try{
-
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		_grade = grade;
-	}
-	catch	(std::exception	& e)
-	{
-		 std::cout << e.what() << std::endl;
-	}
 	return (0);
 }
 
 void		Bureaucrat::executeForm(Form const & form) const
 {
-	try
-	{
 		form.execute(*this);
 		std::cout << this->_name << " Executed " << form.getName() << " Form" <<std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Bureaucrat " << _name << " couldn't execute "\
-			+ form.getName() + " Form because " << e.what() << std::endl;
-	}
 }
 
 const	char	*Bureaucrat::GradeTooHighException::what() const throw()

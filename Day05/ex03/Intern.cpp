@@ -2,10 +2,12 @@
 
 Intern::Intern(void)
 {
+	std::cout << "Intern recruited !" << std::endl;
 }
 
 Intern::~Intern(void)
 {
+	std::cout << "Intern fired !" << std::endl;
 }
 
 Form	*Intern::makeForm(std::string const &name, std::string const &target)

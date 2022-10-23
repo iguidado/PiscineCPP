@@ -28,37 +28,22 @@ short		Bureaucrat::getGrade(void) const
 
 void		Bureaucrat::incrGrade(void)
 {
-	try
-	{
 	if (_grade > 1)
 		this->_grade--;
 	else
 			throw Bureaucrat::GradeTooHighException();
-	}
-	catch	(std::exception & e)
-	{
-		std::cout << "Increment error :" << e.what() << std::endl;
-	}
 }
 
 void		Bureaucrat::decreGrade(void)
 {
-	try {
 		if (_grade < 150)
 			this->_grade++;
 		else
 			throw Bureaucrat::GradeTooLowException();
-	}
-	catch	(std::exception & e)
-	{
-		std::cout << "Decrement error :" << e.what() << std::endl;
-	}
 }
 
 bool	Bureaucrat::setGrade(short grade)
 {
-	try{
-
 	if (grade < 1)
 	{
 		_grade = 150;
@@ -71,11 +56,6 @@ bool	Bureaucrat::setGrade(short grade)
 	}
 	else
 		_grade = grade;
-	}
-	catch	(std::exception	& e)
-	{
-			 std::cout << "Error with Bureaucrat " << getName() << ": " << e.what() << std::endl;
-	}
 	return (0);
 }
 
@@ -110,13 +90,6 @@ Bureaucrat	&Bureaucrat::operator=(Bureaucrat &rhs)
 
 void		Bureaucrat::signForm(Form & form)
 {
-	try
-	{
 		form.beSigned(*this);
 		std::cout << this->getName() << " Signed form " << form.getName() << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << this->getName() << " could't sign "  << form.getName() << " because " << e.what() << std::endl;
-	}
 }
