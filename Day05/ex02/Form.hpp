@@ -15,7 +15,7 @@ class	Form
 	public:
 		Form(void);
 		Form(std::string name, std::string target, short toSign, short toExec);
-		~Form(void);
+		virtual ~Form(void);
 
 		class	AlreadySigned: public std::exception { const char *what(void) const throw(); };
 		class	NotSignedException: public std::exception { const char *what(void) const throw(); };

@@ -1,4 +1,4 @@
-NAME=Bureaucrat
+NAME=Intern
 SRC=main.cpp\
     Form.cpp\
     ShrubberyCreationForm.cpp\
@@ -28,8 +28,9 @@ $(NAME): $(HDR) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
+
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) *_shrubbery
 
 re: fclean all
 

@@ -9,16 +9,17 @@ int	main(void)
 
 	try
 	{
-	newForm = noob.makeForm("Shrubbery creation", "garden");
-	newForm->beSigned(boss);
-	newForm->execute(boss);
-	delete newForm;
-	newForm = noob.makeForm("Bad Form", "garden");
-	delete newForm;
+		newForm = noob.makeForm("shrubbery creation", "garden");
+		newForm->beSigned(boss);
+		newForm->execute(boss);
+			delete newForm;
+		newForm = noob.makeForm("Bad Form", "garden");
+		if (newForm)
+			delete newForm;
 	}
 	catch(std::exception & e)
 	{
-		std::cout << "hello";
+		std::cout << "HELLO" << std::endl;
 	}
 	return (0);
 }

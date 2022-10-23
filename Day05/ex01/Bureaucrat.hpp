@@ -12,6 +12,7 @@ class	Bureaucrat
 		short		_grade;
 	public:
 		Bureaucrat(void);
+		Bureaucrat(Bureaucrat &src);
 		Bureaucrat(std::string name, short grade);
 		~Bureaucrat(void);
 
@@ -23,6 +24,8 @@ class	Bureaucrat
 		void		decreGrade(void);
 
 		void		signForm(Form &form);
+
+		Bureaucrat &operator=(Bureaucrat &rhs);
 
 		class	GradeTooHighException: public std::exception { const char *what(void) const throw(); };
 		class	GradeTooLowException: public std::exception { const char *what(void) const throw(); };

@@ -23,12 +23,9 @@ class	Form
 
 		void	beSigned(Bureaucrat & signatory);
 
-
 		bool	setGrade(short &toSet, short grade);
 		void	setToSign(short grade);
 		void	setToExec(short grade);
-		void	setIsSigned(bool status);
-
 
 		std::string	const &getName(void) const;
 		short		const &getToSign(void) const;

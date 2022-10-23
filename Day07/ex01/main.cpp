@@ -8,7 +8,6 @@ void	ft_upper(char	&c)
 {
 	if (islower(c))
 	{
-		std::cout << "lol" << std::endl;
 		c = toupper(c);
 	}
 }

@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(void): _name("Default"), _isSigned(false), _toSign(0), _toExec(150)
+Form::Form(void): _name("Default"), _isSigned(false), _toSign(1), _toExec(1)
 {
 	std::cout << "Default Constructor called" << std::endl;
 }
@@ -15,18 +15,17 @@ Form::Form(std::string name, short toSign, short toExec): _name(name), _isSigned
 
 Form::~Form(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called on " << this->_name << " form." << std::endl;
 }
 
 void		Form::setToSign(short grade)
 {
-
 	try{
 		setGrade(this->_toSign, grade);
 	}
 	catch	(std::exception	& e)
 	{
-		std::cout << "Could not set toSign to" << grade << " because " << e.what() << std::endl;
+		std::cout << "Could not set toSign to " << grade << " because " << e.what() << std::endl;
 		_toSign = 1;
 	}
 }
@@ -38,7 +37,7 @@ void		Form::setToExec(short grade)
 	}
 	catch	(std::exception	& e)
 	{
-		std::cout << "Could not set toExec to" << grade << " because " << e.what() << std::endl;
+		std::cout << "Could not set toExec to " << grade << " because " << e.what() << std::endl;
 		_toExec = 1;
 	}
 }
@@ -76,24 +75,11 @@ bool	Form::setGrade(short &toSet, short grade)
 
 void	Form::beSigned(Bureaucrat & signatory)
 {
-	try
-	{
 		if (_isSigned == true)
 			throw Form::AlreadySigned();
 		if (signatory.getGrade() > this->_toSign)
 			throw Form::GradeTooLowException();
 		_isSigned = true;
-		std::cout << signatory.getName() << " Signed form " << this->_name << std::endl;
-	}
-	catch (std::exception & e)
-	{
-	std::cout << signatory.getName() << " could't sign "  << this->getName() << " because " << e.what() << std::endl;
-	}
-}
-
-void	Form::setIsSigned(bool status)
-{
-	this->_isSigned = status;
 }
 
 const	char	*Form::AlreadySigned::what() const throw()
@@ -118,12 +104,13 @@ const	char	*Form::GradeTooLowException::what() const throw()
 
 std::ostream & operator<<(std::ostream &os, Form &form)
 {
-	os  << "Form name :" << form.getName() << std::endl;
+	os  << "----- Form name :" << form.getName() +"-------"<< std::endl;
 	os << "Form is ";
 	if (!form.getSigned())
 		os << "Not ";
 	os << "Signed." << std::endl;
-	os << "rank require to sign :" << form.getToSign() << std::endl;
+	os << "Rank require to sign :" << form.getToSign() << std::endl;
 	os << "Rank require to execute :" << form.getToExec() << std::endl;
+	os << "------------------------------------" << std::endl;
 	return (os);
 }

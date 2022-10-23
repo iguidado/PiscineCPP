@@ -2,7 +2,7 @@
 #include <ctime>
 
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("Robotomy Request", "Brainful",  72, 45)
+RobotomyRequestForm::RobotomyRequestForm(): Form("Robotomy Request", "Bender",  72, 45)
 {
 	srand(time(0));
 	std::cout << "Created a RobotomyRequestForm" << std::endl;
@@ -21,15 +21,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
 		Form::testExecute(executor);
 		perfExec(this->getTarget());
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Can't execute Form because: " << e.what() << std::endl;
-	}
 }
 
 void	RobotomyRequestForm::perfExec(std::string const &target) const

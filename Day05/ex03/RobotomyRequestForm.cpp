@@ -2,13 +2,15 @@
 #include <ctime>
 
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("Default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(): Form("Robotomy Request", "Bender",  72, 45)
 {
+	srand(time(0));
 	std::cout << "Created a RobotomyRequestForm" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): Form(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("Robotomy Request", target, 72, 45)
 {
+	srand(time(0));
 	std::cout << "Created a RobotomyRequestForm with target: " << this->getTarget() << std::endl;
 }
 
@@ -19,22 +21,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
 		Form::testExecute(executor);
 		perfExec(this->getTarget());
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Can't execute Form because: " << e.what() << std::endl;
-	}
 }
 
 void	RobotomyRequestForm::perfExec(std::string const &target) const
 {
 	std::cout << "*Drill sound*" << std::endl;
-	srand(time(0));
-	int		result = rand() % 2;
+	int		result = (int)rand() % 2;
 
 	if (result)
 	{

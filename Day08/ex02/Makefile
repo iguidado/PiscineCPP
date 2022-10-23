@@ -1,7 +1,7 @@
-NAME=span
-SRC=main.cpp\
-	Span.cpp
-HDR=Span.hpp
+NAME=mutant
+SRC=main.cpp
+	
+HDR=mutantStack.hpp
 
 CC=c++ -Wall -Werror -Wextra -std=c++98
 
@@ -12,7 +12,7 @@ all : $(NAME)
 $(NAME): $(OBJ) $(HDR)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HDR)
 	$(CC) -c $< -o $@
 
 clean:

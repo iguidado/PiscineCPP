@@ -44,4 +44,3 @@ void	DiamondTrap::whoAmI(void)
 {
 	std::cout << "I am " + _name + " a proud child of " + ClapTrap::_name + " the first !" << std::endl << std::endl;
 }
-

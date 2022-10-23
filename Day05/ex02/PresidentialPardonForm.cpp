@@ -1,6 +1,5 @@
 #include "PresidentialPardonForm.hpp"
 
-
 PresidentialPardonForm::PresidentialPardonForm(): Form("Presidential Pardon", "Traitor",  25, 5)
 {
 	std::cout << "Created a PresidentialPardonForm" << std::endl;
@@ -18,18 +17,11 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
 		Form::testExecute(executor);
 		perfExec(this->getTarget());
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Can't execute Form because: " << e.what() << std::endl;
-	}
 }
 
 void	PresidentialPardonForm::perfExec(std::string const &target) const
 {
-	std::cout << target << " Was forgiven by the fabulout Zaphod Beeblebrox *_*" << std::endl;
+	std::cout << target << " was forgiven by the fabulous Zaphod Beeblebrox *_*" << std::endl;
 }

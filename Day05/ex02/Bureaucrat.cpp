@@ -61,11 +61,12 @@ void		Bureaucrat::executeForm(Form const & form) const
 	try
 	{
 		form.execute(*this);
-		std::cout << this->_name << "Executed " <<std::endl;
+		std::cout << this->_name << " Executed " << form.getName() << " Form" <<std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat " << _name << "couldn't sign Form" << std::endl;
+		std::cout << "Bureaucrat " << _name << " couldn't execute "\
+			+ form.getName() + " Form because " << e.what() << std::endl;
 	}
 }
 
@@ -89,4 +90,14 @@ std::ostream	&operator<<(std::ostream	&os, Bureaucrat &src)
 {
 	os << src.getName() << ", bureaucrat grade " << src.getGrade();
 	return (os);
+}
+Bureaucrat::Bureaucrat(Bureaucrat &src): _name(src._name)
+{
+	*this = src;
+}
+
+Bureaucrat	&Bureaucrat::operator=(Bureaucrat &rhs)
+{
+	this->_grade = rhs._grade;
+	return (*this);
 }

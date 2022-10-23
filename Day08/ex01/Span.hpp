@@ -10,6 +10,7 @@ class	Span
 {
 	private:
 		unsigned int			_N;
+		unsigned int			_totalNbr;
 		std::vector<int>		_tab;
 	public:
 		Span(void);
@@ -20,9 +21,15 @@ class	Span
 		Span &operator=(Span const &rhs);
 
 		void	addNumber(int const &nbr);
-		unsigned int shortestSpan(void) const;
-		unsigned int longestSpan(void) const;
-		void			addSpan(unsigned int begin, unsigned int const &end);
+		void	addRange(std::vector<int>::iterator	it, std::vector<int>::iterator ite);
+//		void	addRange(int	begin, int &end);
+//		void	addRange(int	begin);
+//		void	addRange(Span const &src);
+
+
+		unsigned int shortestSpan(void);
+		unsigned int longestSpan(void);
+
 
 		class	TabFullException: public std::exception
 		{ const char *what(void) const throw() { return "Tab is full !"; } };

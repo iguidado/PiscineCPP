@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(std::string name, short grade): _name(name)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called on " + _name  << std::endl;
 }
 
 std::string	Bureaucrat::getName(void) const
@@ -60,9 +60,15 @@ bool	Bureaucrat::setGrade(short grade)
 	try{
 
 	if (grade < 1)
+	{
+		_grade = 150;
 		throw Bureaucrat::GradeTooHighException();
+	}
 	else if (grade > 150)
+	{
+		_grade = 150;
 		throw Bureaucrat::GradeTooLowException();
+	}
 	else
 		_grade = grade;
 	}
@@ -83,13 +89,34 @@ const	char	*Bureaucrat::GradeTooLowException::what() const throw()
 	return "Trying to set a grade too low on Bureaucreat";
 }
 
-void		Bureaucrat::signForm(Form & form)
-{
-		form.beSigned(*this);
-}
-
 std::ostream	&operator<<(std::ostream	&os, Bureaucrat &src)
 {
 	os << src.getName() << ", bureaucrat grade " << src.getGrade();
 	return (os);
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat &src): _name(src._name)
+{
+	std::cout << "Copy Constructor called with " + _name << std::endl;
+	*this = src;
+}
+
+Bureaucrat	&Bureaucrat::operator=(Bureaucrat &rhs)
+{
+	std::cout << "Assigned attribute of " + rhs._name + " to " + this->_name<< std::endl;
+	this->_grade = rhs._grade;
+	return (*this);
+}
+
+void		Bureaucrat::signForm(Form & form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " Signed form " << form.getName() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << this->getName() << " could't sign "  << form.getName() << " because " << e.what() << std::endl;
+	}
 }

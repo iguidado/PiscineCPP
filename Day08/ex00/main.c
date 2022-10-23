@@ -12,6 +12,15 @@ int	main(void)
 
 	try
 	{
+		it = easyfind(hello, -2);
+		std::cout << *it << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
 	it = easyfind(hello, 42);
 		std::cout << *it << std::endl;
 	}

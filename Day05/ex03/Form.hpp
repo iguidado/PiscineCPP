@@ -7,13 +7,14 @@ class	Bureaucrat;
 class	Form
 {
 	private:
+		std::string	const _name;
 		std::string	_target;
 		bool		_isSigned;
 		short		_toSign;
 		short		_toExec;
 	public:
 		Form(void);
-		Form(std::string target, short toSign, short toExec);
+		Form(std::string name, std::string target, short toSign, short toExec);
 		virtual ~Form(void);
 
 		class	AlreadySigned: public std::exception { const char *what(void) const throw(); };
@@ -27,6 +28,7 @@ class	Form
 		virtual	void	execute(Bureaucrat const & executor) const = 0;
 
 
+		void	setTarget(std::string const &target);
 		bool	setGrade(short &toSet, short grade);
 		void	setToSign(short grade);
 		void	setToExec(short grade);
@@ -34,6 +36,7 @@ class	Form
 
 
 		std::string	const &getTarget(void) const;
+		std::string	const &getName(void) const;
 		short		const &getToSign(void) const;
 		short		const &getToExec(void) const;
 		bool		const &getSigned(void) const;

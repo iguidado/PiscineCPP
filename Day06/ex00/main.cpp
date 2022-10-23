@@ -40,7 +40,7 @@ bool isChar(std::string const &src)
 	}
 	if (src[0] == '\'' && src[1] != 0 && src[2] == src[0])
 	{
-		if (src[4] != 0)
+		if (src[3] != 0)
 			return (0);
 		return (1);
 	}
@@ -172,13 +172,11 @@ void	printFloat(std::string &input)
 
 	nbr = strtod(input.c_str(), NULL);
 
-	std::cout << "nbr = " << nbr << std::endl;
 	if (errno == ERANGE)
 	{
 		std::cout << "Input overflow base type" << std::endl;
 		return ;
 	}
-	std::cout << "hello" << std::endl;
 	
 // printing Char from Float
 
@@ -239,6 +237,7 @@ int	main(int ac, char **av)
 	switch (type) {
 		case 1:
 			strTrim_dirty(input, '\'');
+			std::cout << "string is equal to " << input << std::endl;
 			printChar(input[0]);
 			break;
 		case 2:

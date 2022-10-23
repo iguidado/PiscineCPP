@@ -18,15 +18,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
 		Form::testExecute(executor);
 		perfExec(this->getTarget());
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Can't execute Form because: " << e.what() << std::endl;
-	}
 }
 
 void	ShrubberyCreationForm::perfExec(std::string const &target) const
@@ -35,6 +28,16 @@ void	ShrubberyCreationForm::perfExec(std::string const &target) const
 	std::string	outfile = target + "_shrubbery";
 
 	os.open(outfile.c_str(), std::ios::out | std::ios::trunc);
+	os << "        _-_ " << std::endl;
+	os << "     /~~   ~~\\ " << std::endl;
+	os << "  /~~         ~~\\ " << std::endl;
+	os << " {               } " << std::endl;
+	os << "  \\  _-     -_  / " << std::endl;
+	os << "    ~  \\\\ //  ~ " << std::endl;
+	os << " _- -   | | _- _ " << std::endl;
+	os << "   _ -  | |   -_ " << std::endl;
+	os << "       // \\\\ " << std::endl;
+	os << std::endl;
 	os << "        _-_ " << std::endl;
 	os << "     /~~   ~~\\ " << std::endl;
 	os << "  /~~         ~~\\ " << std::endl;
