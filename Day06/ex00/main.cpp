@@ -150,7 +150,7 @@ void	printInt(std::string &input)
 //	Printing Float from int
 
 	std::cout << "float: ";
-	if (nbr > FLT_MAX || nbr < FLT_MIN)
+	if (nbr > FLT_MAX || nbr < -FLT_MAX)
 		std::cout << "overflow";
 	else
 		std::cout << static_cast<float>(nbr);
@@ -159,7 +159,7 @@ void	printInt(std::string &input)
 // Printing Double from int
 
 	std::cout << "double: ";
-	if (nbr > DBL_MAX || nbr < DBL_MIN)
+	if (nbr > DBL_MAX || nbr < -DBL_MAX)
 		std::cout << "overflow";
 	else
 		std::cout << static_cast<double>(nbr);
@@ -196,6 +196,8 @@ void	printFloat(std::string &input)
 	std::cout << "int: " ;
 	 if (!(nbr == nbr) || input.find("inf") != std::string::npos)
 		std::cout << "impossible";
+	 else if (nbr > INT_MAX || nbr < INT_MIN)
+		std::cout << "overflow";
 	 else 
 		 std::cout << static_cast<int>(nbr);
 	 std::cout << std::endl;
@@ -237,7 +239,6 @@ int	main(int ac, char **av)
 	switch (type) {
 		case 1:
 			strTrim_dirty(input, '\'');
-			std::cout << "string is equal to " << input << std::endl;
 			printChar(input[0]);
 			break;
 		case 2:
